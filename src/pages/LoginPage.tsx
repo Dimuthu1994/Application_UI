@@ -1,8 +1,13 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
-const LoginPage = () => {
+interface LoginPageProps {
+  setName: React.Dispatch<React.SetStateAction<string>>; // Define a prop to set the token
+}
+
+const LoginPage: React.FC<LoginPageProps> = ({ setName }) => {
   const [error, setError] = useState<string | null>(null);
   const userNameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -18,9 +23,12 @@ const LoginPage = () => {
           password: passwordRef.current?.value,
         }
       );
-      const token = response.data.token;
+      const { token } = response.data.result;
       localStorage.setItem("token", token);
       console.log("Login successful:", response.data);
+      const { name }: any = jwtDecode(token);
+      setName(name);
+
       // Redirect to login page upon successful registration
       navigate("/");
     } catch (error) {

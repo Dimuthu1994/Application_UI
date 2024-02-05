@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import LogoutButton from "./LogoutButton";
-const Sidebar = () => {
+import { JwtPayload, jwtDecode } from "jwt-decode";
+
+interface Props {
+  name: string; // Define a prop to accept the token value
+}
+const Sidebar = ({ name }: Props) => {
   return (
     <nav className="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
       <div className="position-sticky">
@@ -9,7 +14,7 @@ const Sidebar = () => {
           <div className="pt-3 d-flex justify-content-center align-items-center pr-3 mb-2">
             <div className="text-light text-center">
               <p className="mb-2 fs-3">Cmex HRM</p>
-              <p className="mb-2 fs-5">Welcome</p>
+              <p className="mb-2 fs-5">Welcome {name}</p>
             </div>
           </div>
           <ul className="nav flex-column">

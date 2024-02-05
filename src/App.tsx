@@ -16,6 +16,7 @@ import PrivateRoutes from "./utils/PrivateRoutes";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
+  const [name, setName] = useState("");
 
   const handleSearchChange = (value: string) => {
     setSearchValue(value);
@@ -24,7 +25,7 @@ function App() {
   return (
     <>
       <Header onSearchChange={handleSearchChange} />
-      <Sidebar />
+      <Sidebar name={name} />
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route
@@ -37,7 +38,7 @@ function App() {
           <Route path="/dashboard" element={<DashPage />} />
           <Route path="/create" element={<ProductCreatePage />} />
         </Route>
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage setName={setName} />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

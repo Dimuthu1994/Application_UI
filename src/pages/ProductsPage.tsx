@@ -31,7 +31,7 @@ const ProductsPage = ({ searchValue }: Props) => {
       }
     };
     fetchProducts();
-  }, [searchValue, pageSize, pageNumber, products]);
+  }, [searchValue, pageSize, pageNumber]);
 
   return (
     <>
