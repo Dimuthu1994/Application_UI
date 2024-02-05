@@ -10,6 +10,9 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import { useState } from "react";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProductCreatePage from "./pages/ProductCreatePage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import PrivateRoutes from "./utils/PrivateRoutes";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -23,12 +26,19 @@ function App() {
       <Header onSearchChange={handleSearchChange} />
       <Sidebar />
       <Routes>
-        <Route path="/" element={<ProductsPage searchValue={searchValue} />} />
-        <Route path="/:productId" element={<ProductDetailPage />} />
-        <Route path="/user" element={<UserPage />} />
-        <Route path="/settings" element={<SettingsPage />} />
-        <Route path="/dashboard" element={<DashPage />} />
-        <Route path="/create" element={<ProductCreatePage />} />
+        <Route element={<PrivateRoutes />}>
+          <Route
+            path="/"
+            element={<ProductsPage searchValue={searchValue} />}
+          />
+          <Route path="/:productId" element={<ProductDetailPage />} />
+          <Route path="/user" element={<UserPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/dashboard" element={<DashPage />} />
+          <Route path="/create" element={<ProductCreatePage />} />
+        </Route>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

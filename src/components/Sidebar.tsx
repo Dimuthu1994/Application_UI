@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
+import LogoutButton from "./LogoutButton";
 const Sidebar = () => {
   return (
     <nav className="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
@@ -35,9 +36,7 @@ const Sidebar = () => {
             </li>
           </ul>
           <div className="pt-4 d-flex justify-content-center align-items-center pr-3 mb-2">
-            <button type="button" className="btn btn-primary">
-              Log out
-            </button>
+            <LogoutButton />
           </div>
         </div>
       </div>
