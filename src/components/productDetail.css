@@ -1,0 +1,12 @@
+.productdetail {
+  position: fixed;
+  top: 10%; /* Stick to the top */
+  left: 25%; /* Stick to the left */
+  height: 50vh; /* Full height of viewport */
+  width: 60%;
+
+  padding-left: 4rem; /* Adjust top padding for content */
+
+  margin-right: 20px;
+  padding-right: 4rem;
+}

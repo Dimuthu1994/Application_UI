@@ -1,0 +1,23 @@
+.sidebar {
+  position: fixed; /* Fixed position */
+  top: 0; /* Stick to the top */
+  left: 0; /* Stick to the left */
+  height: 100vh; /* Full height of viewport */
+  width: 230px; /* Sidebar width */
+  z-index: -1; /* Ensure it's on top of other content */
+  background-color: #343a40; /* Dark background color */
+  padding-top: 4rem; /* Adjust top padding for content */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.5); /* Sidebar text color */
+}
+
+.sidebar .nav-link.active {
+  color: #fff; /* Active sidebar item color */
+}
+
+.sidebar .nav-link:hover {
+  color: #fff; /* Hover effect */
+}
